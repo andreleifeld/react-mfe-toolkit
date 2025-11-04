@@ -6,7 +6,7 @@ import {
   names,
   offsetFromRoot,
   readJson,
-  Tree,
+  Tree
 } from '@nx/devkit';
 
 interface Schema {
@@ -42,9 +42,7 @@ function ensurePortIsAvailable(tree: Tree, port: number): void {
 
     const existingPort = config?.targets?.serve?.options?.port;
     if (existingPort === port) {
-      throw new Error(
-        `Port ${port} is already used by the "${project}" application.`,
-      );
+      throw new Error(`Port ${port} is already used by the "${project}" application.`);
     }
   }
 }
@@ -52,23 +50,17 @@ function ensurePortIsAvailable(tree: Tree, port: number): void {
 function updateShellRemoteTypeDeclarations(tree: Tree, remoteName: string): void {
   const moduleId = `${remoteName}/Module`;
   const declarationsPath = joinPathFragments('apps', 'shell', 'module-federation.d.ts');
-  const remoteComponentAlias =
-    "type RemoteComponent = import('react').ComponentType<unknown>;";
+  const remoteComponentAlias = "type RemoteComponent = import('react').ComponentType<unknown>;";
   const declaration = [
     `declare module '${moduleId}' {`,
     '  const Remote: RemoteComponent;',
     '  export default Remote;',
     '}',
-    '',
+    ''
   ].join('\n');
 
   if (!tree.exists(declarationsPath)) {
-    const content = [
-      remoteComponentAlias,
-      '',
-      declaration.trimEnd(),
-      '',
-    ].join('\n');
+    const content = [remoteComponentAlias, '', declaration.trimEnd(), ''].join('\n');
     tree.write(declarationsPath, content);
     return;
   }
@@ -82,10 +74,7 @@ function updateShellRemoteTypeDeclarations(tree: Tree, remoteName: string): void
     currentContent = `${remoteComponentAlias}\n\n${currentContent.trimStart()}`;
   }
 
-  const nextContent = `${currentContent.trimEnd()}\n\n${declaration}`.replace(
-    /\n{3,}$/g,
-    '\n\n',
-  );
+  const nextContent = `${currentContent.trimEnd()}\n\n${declaration}`.replace(/\n{3,}$/g, '\n\n');
 
   tree.write(declarationsPath, `${nextContent}\n`);
 }
@@ -97,13 +86,10 @@ export default async function (tree: Tree, schema: Schema) {
   const projectRoot = joinPathFragments(appsDir, projectName);
   const projectJsonPath = joinPathFragments(projectRoot, 'project.json');
   const projectAlreadyExists =
-    tree.exists(projectJsonPath) ||
-    (tree.exists(appsDir) && tree.children(appsDir).includes(projectName));
+    tree.exists(projectJsonPath) || (tree.exists(appsDir) && tree.children(appsDir).includes(projectName));
 
   if (projectAlreadyExists) {
-    throw new Error(
-      `An application with the name "${projectName}" already exists.`,
-    );
+    throw new Error(`An application with the name "${projectName}" already exists.`);
   }
 
   ensurePortIsAvailable(tree, schema.port);
@@ -117,15 +103,10 @@ export default async function (tree: Tree, schema: Schema) {
     componentClassName,
     port: schema.port,
     remoteName: projectName,
-    offsetFromRoot: offsetFromRoot(projectRoot),
+    offsetFromRoot: offsetFromRoot(projectRoot)
   };
 
-  generateFiles(
-    tree,
-    joinPathFragments(__dirname, './files'),
-    projectRoot,
-    templateOptions,
-  );
+  generateFiles(tree, joinPathFragments(__dirname, './files'), projectRoot, templateOptions);
 
   const sourceRoot = joinPathFragments(projectRoot, 'src');
 
@@ -149,28 +130,26 @@ export default async function (tree: Tree, schema: Schema) {
             main: joinPathFragments(sourceRoot, 'main.tsx'),
             webpackConfig: joinPathFragments(projectRoot, 'webpack.config.js'),
             tsConfig: joinPathFragments(projectRoot, 'tsconfig.app.json'),
-            assets: [joinPathFragments(sourceRoot, 'assets')],
-          },
+            assets: [joinPathFragments(sourceRoot, 'assets')]
+          }
         },
         serve: {
           executor: '@nx/webpack:dev-server',
           options: {
             buildTarget: `${projectName}:build`,
             hmr: true,
-            port: schema.port,
-          },
+            port: schema.port
+          }
         },
         lint: {
           executor: '@nx/eslint:lint',
           options: {
-            lintFilePatterns: [
-              joinPathFragments(projectRoot, '**/*.{ts,tsx,js,jsx}'),
-            ],
-          },
-        },
-      },
+            lintFilePatterns: [joinPathFragments(projectRoot, '**/*.{ts,tsx,js,jsx}')]
+          }
+        }
+      }
     },
-    true,
+    true
   );
 
   updateShellRemoteTypeDeclarations(tree, projectName);

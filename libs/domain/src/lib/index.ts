@@ -1,1 +1,4 @@
-export interface Dashboard { id: string; name: string; }
+export interface Dashboard {
+  id: string;
+  name: string;
+}
