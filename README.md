@@ -218,11 +218,11 @@ This opens an interactive dependency map in your browser.
 
 ## Best Practices
 
-✅ Keep domain logic inside libs/domain - never inside components.
-✅ Use libs/data for API integrations (REST, GraphQL).
-✅ Avoid circular dependencies between features.
-✅ Use the Nx generator for new MFEs - don’t copy-paste manually.
-✅ Use RxJS for cross-feature event streams or pub/sub behavior.
+* ✅ Keep domain logic inside libs/domain - never inside components.
+* ✅ Use libs/data for API integrations (REST, GraphQL).
+* ✅ Avoid circular dependencies between features.
+* ✅ Use the Nx generator for new MFEs - don’t copy-paste manually.
+* ✅ Use RxJS for cross-feature event streams or pub/sub behavior.
 
 ## Troubleshooting
 
