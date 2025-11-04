@@ -1,9 +1,25 @@
 const { withModuleFederation } = require('@nx/module-federation/webpack');
+const path = require('path');
 
-module.exports = withModuleFederation({
-  name: '{{remoteName}}',
-  exposes: {
-    './Module': './src/remote-entry.tsx',
+const typescriptCompiler = path.resolve(
+  __dirname,
+  '../../.yarn/sdks/typescript/bin/tsc'
+);
+
+module.exports = withModuleFederation(
+  {
+    name: '{{remoteName}}',
+    exposes: {
+      './Module': './src/remote-entry.tsx',
+    },
+    shared: (name, config) => config,
   },
-  shared: (name, config) => config,
-});
+  {
+    dts: {
+      tsConfigPath: path.join(__dirname, 'tsconfig.json'),
+      generateTypes: {
+        compilerInstance: typescriptCompiler,
+      },
+    },
+  }
+);

@@ -10,6 +10,7 @@ node_modules/
 dist/
 tmp/
 coverage/
+@mf-types/
 
 # Nx cache
 .nx/
