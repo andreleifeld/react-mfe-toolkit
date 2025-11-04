@@ -1,6 +1,6 @@
 import React from 'react';
-import { {{componentClassName}} } from './app/{{componentClassName}}';
+import { <%= componentClassName %> } from './app/<%= componentClassName %>';
 
-const Remote = () => <{{componentClassName}} />;
+const Remote = () => <%= '<' + componentClassName + ' />' %>;
 
 export default Remote;

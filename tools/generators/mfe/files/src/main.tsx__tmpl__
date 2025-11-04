@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { {{componentClassName}} } from './app/{{componentClassName}}';
+import { <%= componentClassName %> } from './app/<%= componentClassName %>';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 
-root.render(<{{componentClassName}} />);
+root.render(<%= '<' + componentClassName + ' />' %>);

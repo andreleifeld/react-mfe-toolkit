@@ -8,7 +8,7 @@ const typescriptCompiler = path.resolve(
 
 module.exports = withModuleFederation(
   {
-    name: '{{remoteName}}',
+    name: '<%= remoteName %>',
     exposes: {
       './Module': './src/remote-entry.tsx',
     },
