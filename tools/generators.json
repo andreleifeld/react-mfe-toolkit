@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "name": "enterprise-workspace-generators",
+  "version": "0.1.0",
+  "generators": {
+    "mfe": {
+      "factory": "./generators/mfe/index#default",
+      "schema": "./generators/mfe/schema.json",
+      "description": "Scaffold a new React microfrontend configured for Module Federation."
+    }
+  }
+}

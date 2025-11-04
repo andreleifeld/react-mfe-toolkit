@@ -138,13 +138,13 @@ This workspace includes a custom Nx generator located at `tools/generators/mfe.`
 Run:
 
 ```bash
-yarn nx g ./tools/generators/mfe --name=<mfe-name> --port=<port>
+yarn nx g ./tools/generators.json:mfe --name=<mfe-name> --port=<port>
 ```
 
 Example:
 
 ```bash
-yarn nx g ./tools/generators/mfe --name=analytics --port=4210
+yarn nx g ./tools/generators.json:mfe --name=analytics --port=4210
 ```
 
 This will:
