@@ -1,5 +1,5 @@
 {
-  "name": "enterprise-react-mfe",
+  "name": "react-mfe-toolkit",
   "private": true,
   "version": "0.0.1",
   "license": "MIT",
@@ -7,7 +7,7 @@
     "build": "nx run-many --target=build --all",
     "create:mfe": "nx g ./tools/generators.json:mfe",
     "graph": "nx graph",
-    "lint": "nx run-many --target=lint --all --exclude=enterprise-react-mfe",
+    "lint": "nx run-many --target=lint --all --exclude=react-mfe-toolkit",
     "start:all": "nx run-many --target=serve --parallel --all",
     "start:apps": "nx run-many --target=serve --parallel --all --exclude=shell",
     "start:dashboards": "nx serve dashboards",

@@ -1,6 +1,6 @@
-# Enterprise React MFE Workspace (Nx + TypeScript + Module Federation)
+# React Microfrontend Architecture Toolkit (Nx + TypeScript + Module Federation)
 
-A modular **Enterprise React architecture** built with [Nx](https://nx.dev), [TypeScript](https://www.typescriptlang.org/), and [Webpack Module Federation](https://webpack.js.org/concepts/module-federation/).
+A modular **React Microfrontend Architecture Toolkit** built with [Nx](https://nx.dev), [TypeScript](https://www.typescriptlang.org/), and [Webpack Module Federation](https://webpack.js.org/concepts/module-federation/).
 
 This workspace demonstrates:
 * Multiple **Microfrontends (MFEs)** running as independent React applications.

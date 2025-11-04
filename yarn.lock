@@ -6233,42 +6233,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enterprise-react-mfe@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "enterprise-react-mfe@workspace:."
-  dependencies:
-    "@babel/core": "npm:^7.28.5"
-    "@babel/preset-react": "npm:^7.28.5"
-    "@nx/devkit": "npm:^22.0.2"
-    "@nx/eslint": "npm:22.0.2"
-    "@nx/eslint-plugin": "npm:^22.0.2"
-    "@nx/js": "npm:22.0.2"
-    "@nx/module-federation": "npm:22.0.2"
-    "@nx/react": "npm:22.0.2"
-    "@nx/webpack": "npm:22.0.2"
-    "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.6.1"
-    "@swc-node/core": "npm:^1.14.1"
-    "@swc-node/register": "npm:^1.11.1"
-    "@swc/core": "npm:^1.15.0"
-    "@types/node": "npm:^22.0.0"
-    "@types/react": "npm:^19.2.2"
-    "@types/react-dom": "npm:^19.2.2"
-    "@typescript-eslint/eslint-plugin": "npm:^8.46.3"
-    "@typescript-eslint/parser": "npm:^8.46.3"
-    eslint: "npm:^8.57.0"
-    eslint-config-prettier: "npm:^9.1.0"
-    nx: "npm:22.0.2"
-    prettier: "npm:^3.3.2"
-    react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
-    react-refresh: "npm:^0.18.0"
-    react-router-dom: "npm:^6.26.2"
-    rxjs: "npm:^7.8.1"
-    tapable: "npm:^2.3.0"
-    typescript: "npm:^5.5.0"
-  languageName: unknown
-  linkType: soft
-
 "entities@npm:^2.0.0":
   version: 2.2.0
   resolution: "entities@npm:2.2.0"
@@ -10601,6 +10565,42 @@ __metadata:
   checksum: 10c0/f2f1e60010c683479e74c63f96b09fb41603527cd131a9959e2aee1e5a8b0caf270b365e5ca77d4a6b18aae659b60a86150bb3979073528877029b35aecd2072
   languageName: node
   linkType: hard
+
+"react-mfe-toolkit@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "react-mfe-toolkit@workspace:."
+  dependencies:
+    "@babel/core": "npm:^7.28.5"
+    "@babel/preset-react": "npm:^7.28.5"
+    "@nx/devkit": "npm:^22.0.2"
+    "@nx/eslint": "npm:22.0.2"
+    "@nx/eslint-plugin": "npm:^22.0.2"
+    "@nx/js": "npm:22.0.2"
+    "@nx/module-federation": "npm:22.0.2"
+    "@nx/react": "npm:22.0.2"
+    "@nx/webpack": "npm:22.0.2"
+    "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.6.1"
+    "@swc-node/core": "npm:^1.14.1"
+    "@swc-node/register": "npm:^1.11.1"
+    "@swc/core": "npm:^1.15.0"
+    "@types/node": "npm:^22.0.0"
+    "@types/react": "npm:^19.2.2"
+    "@types/react-dom": "npm:^19.2.2"
+    "@typescript-eslint/eslint-plugin": "npm:^8.46.3"
+    "@typescript-eslint/parser": "npm:^8.46.3"
+    eslint: "npm:^8.57.0"
+    eslint-config-prettier: "npm:^9.1.0"
+    nx: "npm:22.0.2"
+    prettier: "npm:^3.3.2"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    react-refresh: "npm:^0.18.0"
+    react-router-dom: "npm:^6.26.2"
+    rxjs: "npm:^7.8.1"
+    tapable: "npm:^2.3.0"
+    typescript: "npm:^5.5.0"
+  languageName: unknown
+  linkType: soft
 
 "react-refresh@npm:^0.18.0":
   version: 0.18.0

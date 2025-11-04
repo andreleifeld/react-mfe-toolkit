@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "extends": "nx/presets/npm.json",
-  "npmScope": "enterprise",
+  "npmScope": "react-mfe-toolkit",
   "affected": {
     "defaultBase": "main"
   },
