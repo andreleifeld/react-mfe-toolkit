@@ -127,16 +127,18 @@ All libraries are tagged in `project.json` with the correct `layer:*` tag.
 
 ## Nx Commands
 
-| Command                                                                                                   | Description                    |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `yarn nx serve <app>`                                                                                     | Run app in dev mode            |
-| `yarn nx build <app>`                                                                                     | Build for production           |
-| `yarn nx lint <project>`                                                                                  | Run ESLint for a given app/lib |
-| `yarn nx graph`                                                                                           | Visualize dependency graph     |
-| `yarn nx affected:lint`                                                                                   | Lint only changed projects     |
-| `yarn nx affected:build`                                                                                  | Build only changed projects    |
-| `yarn nx run-many --target=build --all`                                                                   | Build everything               |
-| `yarn nx run-many --target=serve --projects=shell,dashboards,reports,settings --parallel --maxParallel=4` | Serve all MFEs at once         |
+| Command                                                                                                   | Description                                                  |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| `yarn nx affected:build`                                                                                  | Build only changed projects                                  |
+| `yarn nx affected:lint`                                                                                   | Lint only changed projects                                   |
+| `yarn nx build <app>`                                                                                     | Build for production                                         |
+| `yarn nx g ./tools/generators.json:mfe --name=<app> --port=<port>`                                        | Generate a new MFE app                                       |
+| `yarn nx graph`                                                                                           | Visualize dependency graph                                   |
+| `yarn nx lint <project>`                                                                                  | Run ESLint for a given app/lib                               |
+| `yarn nx run-many --target=build --all`                                                                   | Build everything                                             |
+| `yarn nx run-many --target=serve --all --exclude=shell`                                                   | Run all but shell app in dev mode                            |
+| `yarn nx run-many --target=serve --all --parallel`                                                        | Serve all MFEs at once                                       |
+| `yarn nx serve <app>`                                                                                     | Run app in dev mode                                          |
 
 ## Creating a new Microfrontend
 

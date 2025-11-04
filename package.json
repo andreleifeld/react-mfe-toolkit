@@ -3,14 +3,16 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "start:shell": "nx serve shell",
+    "build": "nx run-many --target=build --all",
+    "create:mfe": "nx g ./tools/generators.json:mfe",
+    "graph": "nx graph",
+    "lint": "nx run-many --target=lint --all",
+    "start:all": "nx run-many --target=serve --parallel --all",
+    "start:apps": "nx run-many --target=serve --parallel --all --exclude=shell",
     "start:dashboards": "nx serve dashboards",
     "start:reports": "nx serve reports",
     "start:settings": "nx serve settings",
-    "start:all": "nx run-many --target=serve --parallel --all",
-    "build": "nx run-many --target=build --all",
-    "lint": "nx run-many --target=lint --all",
-    "graph": "nx graph"
+    "start:shell": "nx serve shell"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
