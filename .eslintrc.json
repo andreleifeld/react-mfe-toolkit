@@ -1,0 +1,76 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "**/*"
+  ],
+  "plugins": [
+    "@nx"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nx/typescript"
+      ],
+      "rules": {
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "layer:app",
+                "onlyDependOnLibsWithTags": [
+                  "layer:core",
+                  "layer:ui",
+                  "layer:domain",
+                  "layer:data"
+                ]
+              },
+              {
+                "sourceTag": "layer:feature",
+                "onlyDependOnLibsWithTags": [
+                  "layer:core",
+                  "layer:ui",
+                  "layer:domain",
+                  "layer:data"
+                ]
+              },
+              {
+                "sourceTag": "layer:domain",
+                "onlyDependOnLibsWithTags": [
+                  "layer:data",
+                  "layer:core"
+                ]
+              },
+              {
+                "sourceTag": "layer:data",
+                "onlyDependOnLibsWithTags": [
+                  "layer:core"
+                ]
+              },
+              {
+                "sourceTag": "layer:ui",
+                "onlyDependOnLibsWithTags": [
+                  "layer:core"
+                ]
+              },
+              {
+                "sourceTag": "layer:core",
+                "onlyDependOnLibsWithTags": [
+                  "layer:core"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

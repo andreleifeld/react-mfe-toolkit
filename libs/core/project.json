@@ -1,0 +1,1 @@
+{"name":"core","sourceRoot":"libs/core/src","projectType":"library","tags":["layer:core"],"targets":{"lint":{"executor":"@nx/eslint:lint","options":{"lintFilePatterns":["libs/core/**/*.{ts,tsx,js,jsx}"]}}}}

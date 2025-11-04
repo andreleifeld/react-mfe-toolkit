@@ -1,0 +1,10 @@
+import React from 'react';
+
+export function {{componentClassName}}() {
+  return (
+    <div style={{ padding: '1rem' }}>
+      <h2>{{className}}</h2>
+      <p>This is the {{name}} microfrontend.</p>
+    </div>
+  );
+}

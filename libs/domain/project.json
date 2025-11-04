@@ -1,0 +1,1 @@
+{"name":"domain","sourceRoot":"libs/domain/src","projectType":"library","tags":["layer:domain"],"targets":{"lint":{"executor":"@nx/eslint:lint","options":{"lintFilePatterns":["libs/domain/**/*.{ts,tsx,js,jsx}"]}}}}

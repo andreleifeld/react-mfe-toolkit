@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node / tooling artifacts
+node_modules/
+dist/
+tmp/
+coverage/
+
+# Nx cache
+.nx/
+
+# Editor directories and files
+.idea/
+.vscode/
+.vim/
+*.swp
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Yarn Berry (PnP) artifacts that should not be committed
+.pnp.*
+.yarn/*
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/sdks/
+!.yarn/versions/

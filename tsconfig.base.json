@@ -1,0 +1,31 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": [
+        "apps/shell/src/*"
+      ],
+      "@core/*": [
+        "libs/core/src/*"
+      ],
+      "@ui/*": [
+        "libs/ui/src/*"
+      ],
+      "@domain/*": [
+        "libs/domain/src/*"
+      ],
+      "@data/*": [
+        "libs/data/src/*"
+      ]
+    },
+    "module": "commonjs",
+    "target": "ES2020",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "enterprise-react-mfe",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "start:shell": "nx serve shell",
+    "start:dashboards": "nx serve dashboards",
+    "start:reports": "nx serve reports",
+    "start:settings": "nx serve settings",
+    "build": "nx run-many --target=build --all",
+    "lint": "nx run-many --target=lint --all",
+    "graph": "nx graph"
+  },
+  "devDependencies": {
+    "@nx/eslint": "22.0.2",
+    "@nx/js": "^20.0.0",
+    "@nx/react": "^20.0.0",
+    "@nx/webpack": "^20.0.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "nx": "22.0.2",
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "rxjs": "^7.8.1"
+  },
+  "packageManager": "yarn@4.10.3",
+  "nx": {}
+}

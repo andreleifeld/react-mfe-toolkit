@@ -1,0 +1,9 @@
+const { withModuleFederation } = require('@nx/webpack/module-federation');
+
+module.exports = withModuleFederation({
+  name: '{{remoteName}}',
+  exposes: {
+    './Module': './apps/{{name}}/src/remote-entry.tsx',
+  },
+  shared: (name, config) => config,
+});

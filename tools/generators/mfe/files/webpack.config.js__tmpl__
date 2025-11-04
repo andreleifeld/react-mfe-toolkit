@@ -1,0 +1,7 @@
+const { composePlugins, withNx } = require('@nx/webpack');
+const moduleFederationConfig = require('./module-federation.config');
+
+module.exports = composePlugins(withNx(), (config) => {
+  config.experiments = { topLevelAwait: true };
+  return { ...config, ...moduleFederationConfig };
+});

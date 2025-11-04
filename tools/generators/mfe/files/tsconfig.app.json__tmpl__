@@ -1,0 +1,7 @@
+{
+  "extends": "{{offsetFromRoot}}tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "{{offsetFromRoot}}dist/out-tsc"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}

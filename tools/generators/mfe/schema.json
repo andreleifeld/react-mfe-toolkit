@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "title": "mfe",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "port": {
+      "type": "number",
+      "minimum": 1024,
+      "maximum": 65535
+    }
+  },
+  "required": ["name", "port"]
+}
