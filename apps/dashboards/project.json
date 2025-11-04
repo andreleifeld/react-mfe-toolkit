@@ -1,1 +1,41 @@
-{ "name":"dashboards","sourceRoot":"apps/dashboards/src","projectType":"application","tags":["layer:feature"],"targets":{"build":{"executor":"@nx/webpack:webpack","options":{"target":"web","compiler":"babel","outputPath":"dist/apps/dashboards","main":"apps/dashboards/src/main.tsx","webpackConfig":"apps/dashboards/webpack.config.js","tsConfig":"apps/dashboards/tsconfig.app.json","assets":["apps/dashboards/src/assets"]}},"serve":{"executor":"@nx/webpack:dev-server","options":{"buildTarget":"dashboards:build","hmr":true,"port":4201}},"lint":{"executor":"@nx/eslint:lint","options":{"lintFilePatterns":["apps/dashboards/**/*.{ts,tsx,js,jsx}"]}}}}
+{
+  "name": "dashboards",
+  "sourceRoot": "apps/dashboards/src",
+  "projectType": "application",
+  "tags": [
+    "layer:feature"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "options": {
+        "target": "web",
+        "compiler": "babel",
+        "outputPath": "dist/apps/dashboards",
+        "index": "apps/dashboards/src/index.html",
+        "main": "apps/dashboards/src/main.tsx",
+        "webpackConfig": "apps/dashboards/webpack.config.js",
+        "tsConfig": "apps/dashboards/tsconfig.app.json",
+        "assets": [
+          "apps/dashboards/src/assets"
+        ]
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "dashboards:build",
+        "hmr": true,
+        "port": 4201
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/dashboards/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    }
+  }
+}

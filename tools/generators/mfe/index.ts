@@ -49,6 +49,47 @@ function ensurePortIsAvailable(tree: Tree, port: number): void {
   }
 }
 
+function updateShellRemoteTypeDeclarations(tree: Tree, remoteName: string): void {
+  const moduleId = `${remoteName}/Module`;
+  const declarationsPath = joinPathFragments('apps', 'shell', 'module-federation.d.ts');
+  const remoteComponentAlias =
+    "type RemoteComponent = import('react').ComponentType<unknown>;";
+  const declaration = [
+    `declare module '${moduleId}' {`,
+    '  const Remote: RemoteComponent;',
+    '  export default Remote;',
+    '}',
+    '',
+  ].join('\n');
+
+  if (!tree.exists(declarationsPath)) {
+    const content = [
+      remoteComponentAlias,
+      '',
+      declaration.trimEnd(),
+      '',
+    ].join('\n');
+    tree.write(declarationsPath, content);
+    return;
+  }
+
+  let currentContent = tree.read(declarationsPath, 'utf-8');
+  if (currentContent.includes(`'${moduleId}'`)) {
+    return;
+  }
+
+  if (!currentContent.includes('RemoteComponent')) {
+    currentContent = `${remoteComponentAlias}\n\n${currentContent.trimStart()}`;
+  }
+
+  const nextContent = `${currentContent.trimEnd()}\n\n${declaration}`.replace(
+    /\n{3,}$/g,
+    '\n\n',
+  );
+
+  tree.write(declarationsPath, `${nextContent}\n`);
+}
+
 export default async function (tree: Tree, schema: Schema) {
   const projectNames = names(schema.name);
   const projectName = projectNames.fileName;
@@ -72,6 +113,7 @@ export default async function (tree: Tree, schema: Schema) {
     tmpl: '',
     name: projectName,
     className: projectNames.className,
+    htmlTitle: projectNames.className,
     componentClassName,
     port: schema.port,
     remoteName: projectName,
@@ -103,6 +145,7 @@ export default async function (tree: Tree, schema: Schema) {
             target: 'web',
             compiler: 'babel',
             outputPath: joinPathFragments('dist', 'apps', projectName),
+            index: joinPathFragments(sourceRoot, 'index.html'),
             main: joinPathFragments(sourceRoot, 'main.tsx'),
             webpackConfig: joinPathFragments(projectRoot, 'webpack.config.js'),
             tsConfig: joinPathFragments(projectRoot, 'tsconfig.app.json'),
@@ -129,6 +172,8 @@ export default async function (tree: Tree, schema: Schema) {
     },
     true,
   );
+
+  updateShellRemoteTypeDeclarations(tree, projectName);
 
   await formatFiles(tree);
 }

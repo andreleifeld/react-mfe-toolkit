@@ -1,1 +1,41 @@
-{ "name":"reports","sourceRoot":"apps/reports/src","projectType":"application","tags":["layer:feature"],"targets":{"build":{"executor":"@nx/webpack:webpack","options":{"target":"web","compiler":"babel","outputPath":"dist/apps/reports","main":"apps/reports/src/main.tsx","webpackConfig":"apps/reports/webpack.config.js","tsConfig":"apps/reports/tsconfig.app.json","assets":["apps/reports/src/assets"]}},"serve":{"executor":"@nx/webpack:dev-server","options":{"buildTarget":"reports:build","hmr":true,"port":4202}},"lint":{"executor":"@nx/eslint:lint","options":{"lintFilePatterns":["apps/reports/**/*.{ts,tsx,js,jsx}"]}}}}
+{
+  "name": "reports",
+  "sourceRoot": "apps/reports/src",
+  "projectType": "application",
+  "tags": [
+    "layer:feature"
+  ],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "options": {
+        "target": "web",
+        "compiler": "babel",
+        "outputPath": "dist/apps/reports",
+        "index": "apps/reports/src/index.html",
+        "main": "apps/reports/src/main.tsx",
+        "webpackConfig": "apps/reports/webpack.config.js",
+        "tsConfig": "apps/reports/tsconfig.app.json",
+        "assets": [
+          "apps/reports/src/assets"
+        ]
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "reports:build",
+        "hmr": true,
+        "port": 4202
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/reports/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    }
+  }
+}

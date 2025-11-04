@@ -1,2 +1,9 @@
-const { withModuleFederation } = require('@nx/webpack/module-federation');
-module.exports = withModuleFederation({ name: 'settings', exposes: { './Module': './apps/settings/src/remote-entry.tsx' }, shared: (n,c)=>c });
+const { withModuleFederation } = require('@nx/module-federation/webpack');
+
+module.exports = withModuleFederation({
+  name: 'settings',
+  exposes: {
+    './Module': './src/remote-entry.tsx',
+  },
+  shared: (name, config) => config,
+});

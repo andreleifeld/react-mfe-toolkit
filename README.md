@@ -46,11 +46,9 @@ Any violation will cause linting to fail.
 
 ## Setup & Installation
 
-### 1. Clone & install dependencies
+### 1. Install
 
 ```bash
-git clone <your-repo-url>
-cd enterprise-react-mfe
 yarn install
 ```
 
@@ -81,6 +79,14 @@ Each remote runs on its own port:
 * `settings` → http://localhost:4203
 
 The `shell` will be available at http://localhost:4200 and dynamically load the remotes via Module Federation.
+
+To start every MFE from a single terminal, let Nx orchestrate all serve targets:
+
+```bash
+yarn nx run-many --target=serve --projects=shell,dashboards,reports,settings --parallel --maxParallel=4
+```
+
+> Each dev server keeps running, so stop them with `Ctrl+C` in that terminal when you're done.
 
 ## Module Federation Setup
 
@@ -121,15 +127,16 @@ All libraries are tagged in `project.json` with the correct `layer:*` tag.
 
 ## Nx Commands
 
-| Command                                 | Description                    |
-| --------------------------------------- | ------------------------------ |
-| `yarn nx serve <app>`                   | Run app in dev mode            |
-| `yarn nx build <app>`                   | Build for production           |
-| `yarn nx lint <project>`                | Run ESLint for a given app/lib |
-| `yarn nx graph`                         | Visualize dependency graph     |
-| `yarn nx affected:lint`                 | Lint only changed projects     |
-| `yarn nx affected:build`                | Build only changed projects    |
-| `yarn nx run-many --target=build --all` | Build everything               |
+| Command                                                                                                   | Description                    |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| `yarn nx serve <app>`                                                                                     | Run app in dev mode            |
+| `yarn nx build <app>`                                                                                     | Build for production           |
+| `yarn nx lint <project>`                                                                                  | Run ESLint for a given app/lib |
+| `yarn nx graph`                                                                                           | Visualize dependency graph     |
+| `yarn nx affected:lint`                                                                                   | Lint only changed projects     |
+| `yarn nx affected:build`                                                                                  | Build only changed projects    |
+| `yarn nx run-many --target=build --all`                                                                   | Build everything               |
+| `yarn nx run-many --target=serve --projects=shell,dashboards,reports,settings --parallel --maxParallel=4` | Serve all MFEs at once         |
 
 ## Creating a new Microfrontend
 
